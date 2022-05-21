@@ -28,6 +28,10 @@
             <br>
             {{signupform.valid}}
             {{signupform.get('cin')?.errors | json}}
+
+
+            <br>
+            <button (click)="signin()">Sign in</button>
        
         </form>
     </div>
