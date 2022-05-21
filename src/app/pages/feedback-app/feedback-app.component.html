@@ -18,8 +18,9 @@
 
     <div class="feedback-stats">
         <h4>Average : {{avg}}</h4>
+        <h4><input [(ngModel)]="valeur"></h4>
     </div>
-    <div class="card" *ngFor="let feedback of items; let i=index">
+    <div class="card" *ngFor="let feedback of items | filter:valeur; let i=index">
         <div *ngIf="uid == feedback.user_id" class="close" (click)="delete(i)">{{'feedback.supp' | translate}}</div>
 
         <div *ngIf="uid == feedback.user_id" class="edit" (click)="edit(feedback)" >{{'feedback.mod' | translate}}</div>

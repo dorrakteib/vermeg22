@@ -13,7 +13,7 @@ export class FeedbackAppComponent implements OnInit {
   constructor(private feedbackApis: FeedbackService) { }
   items: Feedback[] =[]
   uid = localStorage.getItem('uid')
-
+  valeur =''
   avg : any= 0;
   ngOnInit(): void {
     this.feedbackApis.getAll()
