@@ -15,14 +15,18 @@
             <button class="btn btn-secondary" (click)="add()">Send</button>
         </div>
     </div>
-    <div class="card" *ngFor="let feedback of items; let i=index">
-        <div class="close" (click)="delete(i)">{{'feedback.supp' | translate}}</div>
 
-        <div class="edit" (click)="edit(feedback)" >{{'feedback.mod' | translate}}</div>
+    <div class="feedback-stats">
+        <h4>Average : {{avg}}</h4>
+    </div>
+    <div class="card" *ngFor="let feedback of items; let i=index">
+        <div *ngIf="uid == feedback.user_id" class="close" (click)="delete(i)">{{'feedback.supp' | translate}}</div>
+
+        <div *ngIf="uid == feedback.user_id" class="edit" (click)="edit(feedback)" >{{'feedback.mod' | translate}}</div>
 
         <h3 class="num-display">{{feedback.rating}} </h3>
         <p>{{feedback.text}}</p>
-        <p [routerLink]="['/profile' , feedback.user]">{{feedback.user}}</p>
+        <p [routerLink]="['/profile' , feedback.user_id]">{{feedback.user_id}}</p>
     </div>
 
 

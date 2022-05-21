@@ -1,6 +1,6 @@
 export class Feedback {
-    _id? : number;
+    _id? : string;
     text : string ='';
     rating : number =1;
-    user? : String;
+    user_id? : String;
 }

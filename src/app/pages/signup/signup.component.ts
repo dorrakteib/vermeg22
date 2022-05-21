@@ -62,10 +62,13 @@ export class SignupComponent implements OnInit {
         password : this.signupform.get('password')?.value
       }
       this.authApi.login(body)
-      .subscribe((res)=>{
+      .subscribe((res : any)=>{
           console.log(res)
+          localStorage.setItem('uid' , res._id)
+          this.router.navigate(['/feedback'])
       },(err)=>{
         console.log(err)
+        this.toastr.error(err.status , err.statusText)
       })
     }
   }
